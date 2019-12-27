@@ -66,6 +66,8 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+  banner:
+    location:classpath:banner.txt
 mybatis:
     # 搜索指定包别名
     typeAliasesPackage: com.aaa.repast.admin.project
