@@ -42,9 +42,9 @@ public class PasswordService
     public void validate(User user, String password)
     {
         String loginName = user.getLoginName();
-
+        //先去缓存里面拿
         AtomicInteger retryCount = loginRecordCache.get(loginName);
-
+        //如果没有拿到
         if (retryCount == null)
         {
             retryCount = new AtomicInteger(0);
@@ -83,9 +83,4 @@ public class PasswordService
         return new Md5Hash(username + password + salt).toHex().toString();
     }
 
-    public static void main(String[] args)
-    {
-        System.out.println(new PasswordService().encryptPassword("admin", "admin123", "111111"));
-        System.out.println(new PasswordService().encryptPassword("ry", "admin123", "222222"));
-    }
 }
