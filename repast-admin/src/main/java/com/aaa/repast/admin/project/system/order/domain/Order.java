@@ -3,6 +3,8 @@ package com.aaa.repast.admin.project.system.order.domain;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.aaa.repast.admin.framework.web.domain.BaseEntity;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
