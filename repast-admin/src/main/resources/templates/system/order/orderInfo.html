@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="include :: header"></head>
+<body>
+
+<ul>
+    <li th:each="order:${orderDetails}">
+        <ul >
+            <li >Id: <span th:text="${order.id}"></span > </li>
+            <li >OrderId: <span th:text="${order.orderId}"></span> </li>
+            <li >OrderSn: <span th:text="${order.orderSn}"></span> </li>
+            <li >ProductId: <span th:text="${order.productId}"></span> </li>
+            <li >ProductPic: <span th:text="${order.productPic}"></span> </li>
+            <li >ProductName: <span th:text="${order.productName}"></span> </li>
+            <li >ProductBrand: <span th:text="${order.productBrand}"></span> </li>
+            <li >ProductSn: <span th:text="${order.productSn}"></span> </li>
+            <li >ProductPrice: <span th:text="${order.productPrice}"></span> </li>
+            <li >ProductQuantity: <span th:text="${order.productQuantity}"></span> </li>
+            <li >productSkuId: <span th:text="${order.productSkuId}"></span> </li>
+            <li >productSkuCode: <span th:text="${order.productSkuCode}"></span> </li>
+            <li >productCategoryId: <span th:text="${order.productCategoryId}"></span> </li>
+            <li >Sp1: <span th:text="${order.sp1}"></span> </li>
+            <li >Sp2: <span th:text="${order.sp2}"></span> </li>
+            <li >Sp3: <span th:text="${order.sp3}"></span> </li>
+            <li >PromotionName: <span th:text="${order.promotionName}"></span> </li>
+            <li >PromotionAmount: <span th:text="${order.promotionAmount}"></span> </li>
+            <li >CouponAmount: <span th:text="${order.couponAmount}"></span> </li>
+            <li >IntegrationAmount: <span th:text="${order.integrationAmount}"></span> </li>
+            <li >RealAmount: <span th:text="${order.realAmount}"></span> </li>
+            <li >GiftIntegration: <span th:text="${order.giftIntegration}"></span> </li>
+            <li >GiftGrowth: <span th:text="${order.giftGrowth}"></span> </li>
+            <li >ProductAttr: <span th:text="${order.productAttr}"></span> </li>
+            <li style="border:solid 1px black; "></li>
+        </ul>
+    </li>
+
+</ul>
+
+
+
+<div th:include="include :: footer"></div>
+
+</body>
+</html>
