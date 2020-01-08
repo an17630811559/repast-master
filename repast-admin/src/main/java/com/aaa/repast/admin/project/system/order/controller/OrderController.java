@@ -7,6 +7,8 @@ import com.aaa.repast.admin.framework.poi.ExcelUtil;
 import com.aaa.repast.admin.framework.web.controller.BaseController;
 import com.aaa.repast.admin.framework.web.domain.AjaxResult;
 import com.aaa.repast.admin.framework.web.page.TableDataInfo;
+import com.aaa.repast.admin.project.system.order.domain.OrderItem;
+import com.aaa.repast.admin.project.system.order.service.IOrderItemService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +36,9 @@ public class OrderController extends BaseController
 	
 	@Autowired
 	private IOrderService orderService;
+	@Autowired
+	private IOrderItemService orderItemService;
+
 	
 	@RequiresPermissions("system:order:view")
 	@GetMapping()
@@ -123,6 +128,19 @@ public class OrderController extends BaseController
 	public AjaxResult remove(String ids)
 	{		
 		return toAjax(orderService.deleteOrderByIds(ids));
+	}
+
+
+
+	/**
+	 * 查询订单详情
+	 */
+	@GetMapping( "/selectDetails/{id}")
+	public String selectDetails(@PathVariable("id") String orderSn, ModelMap mmap)
+	{
+		List<OrderItem> list = orderItemService.selectOrderItemByOrderSn(orderSn);
+		mmap.put("orderDetails", list);
+		return prefix + "/orderInfo";
 	}
 	
 }
